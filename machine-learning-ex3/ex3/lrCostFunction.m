@@ -37,13 +37,14 @@ grad = zeros(size(theta));
 %
 
 
+h = sigmoid(X * theta); % 5X1 vector
 
+J = (1/m) * ((-y' * log(h)) - ((1-y)' * log(1-h))) + ...
+        ((lambda/(2*m)) * sum(theta(2:size(theta)).^2));
 
+grad = (1 / m) * X' * (h - y);
 
-
-
-
-
+grad(2:size(grad)) += ((lambda/m) * theta(2:size(theta)));
 
 % =============================================================
 
