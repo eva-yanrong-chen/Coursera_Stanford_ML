@@ -18,12 +18,17 @@ for iter = 1:num_iters
     %
 
 
+    delta = 0;
 
+    for i  = 1 : m
 
+        delta = delta + ((theta' * X(i, :)') - y(i)) * X(i, :)';
 
+    end
 
+    delta = delta / m;
 
-
+    theta = theta - alpha * delta;
 
 
 

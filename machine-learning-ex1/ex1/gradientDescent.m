@@ -18,7 +18,12 @@ for iter = 1:num_iters
     %
 
 
-
+    a = 0;
+    for ct = 1:m
+        a = a + (theta(1) + (theta(2) * X(ct, 2)) - y(ct)) * X(ct,:)';
+    end
+    delta = (1/m) * a;
+    theta = theta - (alpha * delta);
 
 
 
